@@ -14,7 +14,7 @@ expo install @expo/vector-icons
 ```shell
 expo install expo-app-loading
 ```
-### React Nativation
+### React Navigation
 [Installation](https://reactnavigation.org/docs/getting-started#installing-dependencies-into-an-expo-managed-project)
 ```shell
 yarn add @react-navigation/native
