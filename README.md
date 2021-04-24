@@ -1,6 +1,9 @@
 # NLW#5 - Trilha React Native - Plant Manager
 Aplicativo para rega de plantas
 
+### Leiaute no Figma
+[https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1](https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1)
+
 ### Expo Icons
 ```shell
 expo install @expo/vector-icons
@@ -59,3 +62,27 @@ expo install react-native-svg
 
 #### Expo Lottie
 (https://docs.expo.io/versions/latest/sdk/lottie/)[https://docs.expo.io/versions/latest/sdk/lottie/]
+
+### Expo AsyncStorage
+(https://docs.expo.io/versions/latest/sdk/async-storage/)[https://docs.expo.io/versions/latest/sdk/async-storage/]
+```shell
+expo install @react-native-async-storage/async-storage
+```
+
+### Expo DateTimePicker
+(https://docs.expo.io/versions/latest/sdk/date-time-picker/)[https://docs.expo.io/versions/latest/sdk/date-time-picker/]
+```shell
+expo install @react-native-community/datetimepicker
+```
+
+### date-fns
+(https://date-fns.org/docs/Getting-Started#installation)[https://date-fns.org/docs/Getting-Started#installation]
+```shell
+yarn add date-fns
+```
+
+### React Navigation - Tab navigation
+(https://reactnavigation.org/docs/tab-based-navigation/)[https://reactnavigation.org/docs/tab-based-navigation/]
+```shell
+yarn add @react-navigation/bottom-tabs
+```
