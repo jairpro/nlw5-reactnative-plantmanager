@@ -5,7 +5,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView,
 } from 'react-native'
 
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -77,65 +78,74 @@ export function PlantSave() {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.plantInfo}>
-        <SvgFromUri
-          uri={plant.photo}
-          height={150}
-          width={150}
-        />
+    <ScrollView
+     showsVerticalScrollIndicator={false}
+     contentContainerStyle={styles.container}
+    >
+      <View style={styles.container}>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.plantInfo}>
+            <SvgFromUri
+              uri={plant.photo}
+              height={150}
+              width={150}
+              />
 
-        <Text style={styles.plantName}>
-          {plant.name}
-        </Text>
-        <Text style={styles.plantAbout}>
-          {plant.about}
-        </Text>
-      </View>
+            <Text style={styles.plantName}>
+              {plant.name}
+            </Text>
+            <Text style={styles.plantAbout}>
+              {plant.about}
+            </Text>
+          </View>
+        </ScrollView>
 
-      <View style={styles.controller}>
-        <View style={styles.tipContainer}>
-          <Image
-            source={waterdrop}
-            style={styles.tipImage}
-          />
-          <Text style={styles.tipText }>
-            {plant.water_tips}
+        <View style={styles.controller}>
+          <View style={styles.tipContainer}>
+            <Image
+              source={waterdrop}
+              style={styles.tipImage}
+              />
+            <Text style={styles.tipText }>
+              {plant.water_tips}
+            </Text>
+          </View>
+
+          <Text style={styles.alertLabel}>
+            Escolha o melhor horário para ser lembrado:
           </Text>
-        </View>
 
-        <Text style={styles.alertLabel}>
-          Escolha o melhor horário para ser lembrado:
-        </Text>
-
-        {showDatePicker && (
-          <DateTimePicker
+          {showDatePicker && (
+            <DateTimePicker
             value={selectedDateTime}
             mode='time'
             display='spinner'
             onChange={handleChangeTime}
-          />
-        )}
+            />
+            )}
 
-        {
-           Platform.OS === 'android' && (
-            <TouchableOpacity
+          {
+            Platform.OS === 'android' && (
+              <TouchableOpacity
               style={styles.dataTimePickerButton}
               onPress={handleOpenDateTimePickerForAndroid}
-            >
-              <Text style={styles.dataTimePickerText}>
-                {`Mudar ${format(selectedDateTime, 'HH:mm')}`}
-              </Text>
-            </TouchableOpacity>
-          )
-        }
+              >
+                <Text style={styles.dataTimePickerText}>
+                  {`Mudar ${format(selectedDateTime, 'HH:mm')}`}
+                </Text>
+              </TouchableOpacity>
+            )
+          }
 
-        <Button
-          title='Cadastrar planta'
-          onPress={handleSave}
-        />
+          <Button
+            title='Cadastrar planta'
+            onPress={handleSave}
+            />
+        </View>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 

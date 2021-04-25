@@ -86,3 +86,12 @@ yarn add date-fns
 ```shell
 yarn add @react-navigation/bottom-tabs
 ```
+
+### Expo Notifications
+(https://docs.expo.io/versions/latest/sdk/notifications/)[https://docs.expo.io/versions/latest/sdk/notifications/]
+```shell
+expo install expo-notifications
+```
+
+### ✂️ Copy and 📋 Paste Emoji 👍 No apps required
+(https://getemoji.com/)[https://getemoji.com/]

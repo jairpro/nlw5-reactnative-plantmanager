@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -39,6 +39,19 @@ export function UserIdentification() {
     setIsFocused(!!value)
     setName(value)
   }
+
+  useEffect(() => {
+    async function loadName() {
+      try {
+        const name = await AsyncStorage.getItem('@plantmanager:user')
+        setName(name || '')
+      }
+      catch (error) {
+      }
+    }
+
+    loadName()
+  }, [])
 
   async function handleSubmit() {
     if (!name)
@@ -91,6 +104,7 @@ export function UserIdentification() {
                 onBlur={handleInputBlur}
                 onFocus={handleInputFocus}
                 onChangeText={handleInputChange}
+                value={name}
               />
 
               <View style={styles.footer}>
