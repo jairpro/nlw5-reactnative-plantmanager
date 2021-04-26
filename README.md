@@ -1,8 +1,7 @@
 # NLW#5 - Trilha React Native - Plant Manager
 Aplicativo para rega de plantas
 
-### Leiaute no Figma
-[https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1](https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1)
+## 💻 Tecnologias
 
 ### Expo Icons
 ```shell
@@ -95,3 +94,10 @@ expo install expo-notifications
 
 ### ✂️ Copy and 📋 Paste Emoji 👍 No apps required
 (https://getemoji.com/)[https://getemoji.com/]
+
+## 🎨 Leiaute no Figma
+[https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1](https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1)
+
+## 💜 Agradecimentos
+Agradeço ao Rodrigo pela baita aula e a todos da Rockeatseat pelo empenho em levar nós devs para o próximo nível!
+
