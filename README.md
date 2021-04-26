@@ -100,4 +100,4 @@ expo install expo-notifications
 [https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1](https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1)
 
 ## 💜 Agradecimentos
-Agradeço ao Rodrigo pela baita aula e a todos da Rockeatseat pelo empenho em levar nós devs para o próximo nível!
+Agradeço ao [Rodrigo Gonçalves](https://github.com/rodrigorgtic) pela baita aula, ao [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/?hl=pt-br) pelos leiautes e a todos da [Rockeatseat](https://rocketseat.com.br/) pelo empenho em levar nós devs para o próximo nível!
