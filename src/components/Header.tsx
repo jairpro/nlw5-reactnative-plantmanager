@@ -1,4 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/core'
+import { useIsFocused } from '@react-navigation/native'
+
 import React, { useEffect, useState } from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
@@ -10,6 +13,14 @@ import fonts from '../styles/fonts'
 export function Header() {
   const [userName, setUserName] = useState<string>()
 
+  const navigation = useNavigation()
+
+  const isFocused = useIsFocused()
+
+  function handleName() {
+    navigation.navigate('UserIdentification')
+  }
+
   useEffect(() => {
     async function loadStorageUserName() {
       const user = await AsyncStorage.getItem('@plantmanager:user')
@@ -17,18 +28,23 @@ export function Header() {
     }
 
     loadStorageUserName()
-  },[])
+  },[isFocused])
 
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.greeting}>Olá,</Text>
-        <Text style={styles.userName }>
+        <Text style={styles.userName }
+          onPress={handleName}
+        >
           {userName}
         </Text>
       </View>
 
-      <Image source={userImg}  style={styles.image} />
+      <Image 
+        source={userImg}  
+        style={styles.image} 
+      />
     </View>
   )
 }

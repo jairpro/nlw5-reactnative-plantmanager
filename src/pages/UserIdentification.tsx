@@ -18,6 +18,7 @@ import { Button } from '../components/Button'
 
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
+import { loadPlant } from '../libs/storage'
 
 export function UserIdentification() {
   const [isFocused, setIsFocused] = useState(false)
@@ -59,12 +60,17 @@ export function UserIdentification() {
       
     try {
       await AsyncStorage.setItem('@plantmanager:user', name)
+
+      //const plants = await loadPlant()
+      //const nextScreen = plants.length>0 ? 'MyPlants' : 'PlantSelect'
+      const nextScreen = 'PlantSelect'
+
       navigation.navigate('Confirmation', {
         title: 'Prontinho',
         subtitle: 'Agora vamos começar a cuidar das suas \n plantinhas com muito cuidado.',
         buttonTitle: 'Começar',
         icon: 'smile',
-        nextScreen: 'PlantSelect',
+        nextScreen,
       })
     }
     catch {

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import * as Notifications from 'expo-notifications'
-import { format } from 'date-fns'
+import { format, isBefore } from 'date-fns'
 
 export interface PlantProps {
   id: string
@@ -35,7 +35,10 @@ export async function savePlant(plant: PlantProps): Promise<void> {
       nextTime.setDate(now.getDate() + interval)
     }
     else {
-      nextTime.setDate(nextTime.getDate() + 1)
+      const dateTime = nextTime
+      if (dateTime && isBefore(dateTime, new Date())) {
+        nextTime.setDate(nextTime.getDate() + 1)
+      }
     }
 
     const seconds = Math.abs(
@@ -98,12 +101,12 @@ export async function loadPlant(): Promise<PlantProps[]> {
         Math.floor(new Date(b.dateTimeNotification).getTime() / 1000)
     ))
       
-      return plantsSorted
-    }
-    catch (error) {
-      throw new Error(error)
-    }
+    return plantsSorted
   }
+  catch (error) {
+    throw new Error(error)
+  }
+}
   
 export async function removePlant(id: string): Promise<void> {
   const data = await AsyncStorage.getItem('@plantmanager:plants')

@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "plantmanager",
+    "name": "Plant Manager",
     "slug": "plantmanager",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#EDFCF4"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -17,16 +17,20 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sistemanuvem.plantmanager"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#EDFCF4"
+      },
+      "package": "com.sistemanuvem.plantmanager"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Aplicativo para rega de plantas",
+    "githubUrl": "https://github.com/jairpro/nlw5-reactnative-plantmanager"
   }
 }

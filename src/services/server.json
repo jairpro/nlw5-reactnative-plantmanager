@@ -3,18 +3,20 @@
     {"key": "day", "title": "Todos os dias"},
     {"key": "week", "title": "A cada semana"}
   ],
-
+  
   "plants_environments": [
     {"key": "living_room", "title": "Sala"},
     {"key": "bedroom", "title": "Quarto"},
     {"key": "kitchen", "title": "Cozinha"},
     {"key": "bathroom", "title": "Banheiro"}
   ],
-
+  
   "plants": [
     {
       "id": 1,
-      "name": "Aningapara",
+      "name": "Comigo Ninguém Pode",
+      "popular_name": "Comigo-ninguém-pode, Aningapara",
+      "scientific_name": "Dieffenbachia seguine",
       "about": "É uma espécie tropical que tem crescimento rápido e fácil manuseio.",
       "water_tips": "Mantenha a terra sempre húmida sem encharcar. Regue 2 vezes na semana.",
       "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/1.svg",
@@ -27,6 +29,8 @@
     {
       "id": 2,
       "name": "Zamioculca",
+      "popular_name": "Planta da Fortuna",
+      "scientific_name": "Zamioculcas zammifolia",
       "about": "Apesar de florescer na primavera, fica o ano todo bonita e verdinha. ",
       "water_tips": "Utilize vasos com furos e pedras no fundo para facilitar a drenagem. Regue 1 vez no dia.",
       "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/2.svg",
@@ -39,9 +43,11 @@
     {
       "id": 3,
       "name": "Peperomia",
+      "popular_name": "Peperômia",
+      "scientific_name": "Peperomia pellucida",
       "about": "Adapta-se tanto ao sol e sombra, mas prefere ficar num cantinho fresco, sem sol direto. ",
       "water_tips": "Nos dias mais quentes borrife água nas folhas. Regue 3 vezes na semana.",
-      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/3.svg",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/5.svg",
       "environments": ["bedroom"],
       "frequency": {
         "times": 3,
@@ -50,10 +56,12 @@
     },
     {
       "id": 4,
-      "name": "Imbé",
+      "name": "Costela de Adão",
+      "popular_name": "Imbé, Costela de Adão",
+      "scientific_name": "Philodendron bipinnatifidum",
       "about": "De médio porte que se adapta a diversas regiões, além de ser bem fácil de cultivar. Conquista cada vez mais pessoas.",
       "water_tips": "Mantenha a terra sempre húmida sem encharcar. Regue 2 vezes na semana.",
-      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/4.svg",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/6.svg",
       "environments": ["bedroom", "living_room"],
       "frequency": {
         "times": 2,
@@ -63,9 +71,11 @@
     {
       "id": 5,
       "name": "Espada São Jorge",
+      "popular_name": "Espada São Jorge",
+      "scientific_name": "Dracaena trifasciata",
       "about": "O aroma reduz os níveis de ansiedade e seu cheiro ajudar na qualidade do sono e a produtividade durante o dia.",
       "water_tips": "Regue o solo ao redor. Regue 1 vez no dia.",
-      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/5.svg",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/3.svg",
       "environments": ["bedroom", "living_room"],
       "frequency": {
         "times": 1,
@@ -75,9 +85,11 @@
     {
       "id": 6,
       "name": "Yucca",
+      "popular_name": "Pata de Elefante",
+      "scientific_name": "Yucca elephantipes",
       "about": "São indicadas pois são fáceis de manter e cuidar. Você colocar em pequenos vasos, ou até mesmo em xícaras.",
       "water_tips": "Graças à reserva de água dessas verdinhas, é sempre melhor regar pouco. Regue 1 vez na semana.",
-      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/6.svg",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/4.svg",
       "environments": ["kitchen", "bedroom"],
       "frequency": {
         "times": 1,
@@ -87,6 +99,8 @@
     {
       "id": 7,
       "name": "Frutíferas",
+      "popular_name": "",
+      "scientific_name": "Angiosperma",
       "about": "Exigem algumas horinhas de sol por dia, por isso deixe próximo a janelas.",
       "water_tips": "Regue sempre na terra e não as folhas. Regue 3 vezes na semana",
       "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/7.svg",
@@ -99,6 +113,8 @@
     {
       "id": 8,
       "name": "Orquídea",
+      "popular_name": "Orquídea",
+      "scientific_name": "Orchidaceae",
       "about": "Traz sensação de tranquilidade e paz ao ambiente. Requer pouca manutenção e ótima para quem tem pouco espaço.",
       "water_tips": "Regue moderadamente. Reque 4 vezes na semana.",
       "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/8.svg",
@@ -111,9 +127,11 @@
     {
       "id": 9,
       "name": "Violeta",
+      "popular_name": "Violeta, Amor Perfeito",
+      "scientific_name": "Viola riviniana",
       "about": "Com flores delicadas. Elas são ótimas sugestões para decorar o banheiro. ",
       "water_tips": "Nada de molhar as flores e folhas. Regue o solo 2 vezes na semana.",
-      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/3.svg",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/5.svg",
       "environments": ["bathroom"],
       "frequency": {
         "times": 2,
@@ -123,13 +141,43 @@
     {
       "id": 10,
       "name": "Hortênsia",
+      "popular_name": "Hortênsia",
+      "scientific_name": "Hydrangea macrophylla",
       "about": "A hortênsia é uma planta rústica e se adapta a diferentes tipos de solos.",
       "water_tips": "Mantenha a terra sempre húmida sem encharcar. Regue 1 vez no dia.",
-      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/2.svg",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/1.svg",
       "environments": ["bathroom"],
       "frequency": {
         "times": 1,
         "repeat_every": "day"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Pleomele",
+      "popular_name": "Pleomele",
+      "scientific_name": "Dracaena reflexa",
+      "about": "A pleomele é uma das plantas recomendadas para purificação do ar em interiores. A pleomele é tipicamente tropical, apreciando o calor e a umidade.",
+      "water_tips": "Deve ser cultivada sob sol pleno, meia-sombra ou luz difusa, em solo fértil, drenável, enriquecido com matéria orgânica e irrigado regularmente.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/2.svg",
+      "environments": ["living_room", "bedroom", "kitchen"],
+      "frequency": {
+        "times": 3,
+        "repeat_every": "week"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Xanadu",
+      "popular_name": "xanadu",
+      "scientific_name": "Thaumatophyllum xanadu",
+      "about": "O filodendro xanadu diferencia-se da maioria dos filodendros que conhecemos por apresentar crescimento compacto, ao invés de trepador. Ele forma uma pequena moita de até um metro de diâmetro e altura.",
+      "water_tips": "Deve ser cultivada preferencialmente sob meia sombra ou luz filtrada, em solo fértil, humoso, enriquecido e irrigado frequentemente.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/6.svg",
+      "environments": ["kitchen", "bathroom"],
+      "frequency": {
+        "times": 3,
+        "repeat_every": "week"
       }
     }
   ]
