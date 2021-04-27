@@ -1,8 +1,7 @@
 # NLW#5 - Trilha React Native - Plant Manager
 Aplicativo para rega de plantas
 
-### Leiaute no Figma
-[https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1](https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1)
+## 💻 Tecnologias
 
 ### Expo Icons
 ```shell
@@ -43,7 +42,7 @@ yarn add axios
 ```
 
 ### JSON Server
-(https://github.com/typicode/json-server)[https://github.com/typicode/json-server]
+[https://github.com/typicode/json-server](https://github.com/typicode/json-server)
 ```shell
 npm install -g json-server
 
@@ -51,47 +50,54 @@ json-server ./src/services/server.json --host 10.0.0.103 --port 3333 --delay 700
 ```
 
 ### Expo SVG
-(https://docs.expo.io/versions/latest/sdk/svg/)[https://docs.expo.io/versions/latest/sdk/svg/]
+[https://docs.expo.io/versions/latest/sdk/svg/](https://docs.expo.io/versions/latest/sdk/svg/)
 ```shell
 expo install react-native-svg
 ```
 
 ### Lottie
-(https://lottiefiles.com/featured)[https://lottiefiles.com/featured]
-(https://lottiefiles.com/search?q=plant&category=animations)[https://lottiefiles.com/search?q=plant&category=animations]
+[https://lottiefiles.com/featured](https://lottiefiles.com/featured)
+
+[https://lottiefiles.com/search?q=plant&category=animations](https://lottiefiles.com/search?q=plant&category=animations)
 
 #### Expo Lottie
-(https://docs.expo.io/versions/latest/sdk/lottie/)[https://docs.expo.io/versions/latest/sdk/lottie/]
+[https://docs.expo.io/versions/latest/sdk/lottie/](https://docs.expo.io/versions/latest/sdk/lottie/)
 
 ### Expo AsyncStorage
-(https://docs.expo.io/versions/latest/sdk/async-storage/)[https://docs.expo.io/versions/latest/sdk/async-storage/]
+[https://docs.expo.io/versions/latest/sdk/async-storage/](https://docs.expo.io/versions/latest/sdk/async-storage/)
 ```shell
 expo install @react-native-async-storage/async-storage
 ```
 
 ### Expo DateTimePicker
-(https://docs.expo.io/versions/latest/sdk/date-time-picker/)[https://docs.expo.io/versions/latest/sdk/date-time-picker/]
+[https://docs.expo.io/versions/latest/sdk/date-time-picker/](https://docs.expo.io/versions/latest/sdk/date-time-picker/)
 ```shell
 expo install @react-native-community/datetimepicker
 ```
 
 ### date-fns
-(https://date-fns.org/docs/Getting-Started#installation)[https://date-fns.org/docs/Getting-Started#installation]
+[https://date-fns.org/docs/Getting-Started#installation](https://date-fns.org/docs/Getting-Started#installation)
 ```shell
 yarn add date-fns
 ```
 
 ### React Navigation - Tab navigation
-(https://reactnavigation.org/docs/tab-based-navigation/)[https://reactnavigation.org/docs/tab-based-navigation/]
+[https://reactnavigation.org/docs/tab-based-navigation/](https://reactnavigation.org/docs/tab-based-navigation/)
 ```shell
 yarn add @react-navigation/bottom-tabs
 ```
 
 ### Expo Notifications
-(https://docs.expo.io/versions/latest/sdk/notifications/)[https://docs.expo.io/versions/latest/sdk/notifications/]
+[https://docs.expo.io/versions/latest/sdk/notifications/](https://docs.expo.io/versions/latest/sdk/notifications/)
 ```shell
 expo install expo-notifications
 ```
 
 ### ✂️ Copy and 📋 Paste Emoji 👍 No apps required
-(https://getemoji.com/)[https://getemoji.com/]
+[https://getemoji.com/](https://getemoji.com/)
+
+## 🎨 Leiaute no Figma
+[https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1](https://www.figma.com/file/dMO0sQxSRt2ObtYNPJEBht/PlantManager-(Copy)?node-id=0%3A1)
+
+## 💜 Agradecimentos
+Agradeço ao [Rodrigo Gonçalves](https://github.com/rodrigorgtic) pela baita aula, ao [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/?hl=pt-br) pelos leiautes e a todos da [Rockeatseat](https://rocketseat.com.br/) pelo empenho em levar nós devs para o próximo nível!
