@@ -22,6 +22,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 export function Header() {
   const [userName, setUserName] = useState<string>()
   const [userImage, setUserImage] = useState('')
+  const [isLoadingImage, setIsLoagingImage] = useState(true)
 
   const navigation = useNavigation()
 
@@ -33,19 +34,17 @@ export function Header() {
 
   const STORAGE_USER_IMAGE = '@plantmanager:userImage'
 
-  const handleImage = async () => {
-    async function imageSubmit(uri: string) {
-      try {
-        if (!uri)
-          throw ErrorEvent
-        
-        await AsyncStorage.setItem(STORAGE_USER_IMAGE, uri)
-      }
-      catch {
-        Alert.alert('Não foi possível salvar o sua imagem. 😢')
-      }
+  async function imageSubmit(uri: string) {
+    try {
+      await AsyncStorage.setItem(STORAGE_USER_IMAGE, uri)
+      setUserImage(uri)
     }
-  
+    catch {
+      Alert.alert('Não foi possível salvar o sua imagem. 😢')
+    }
+  }
+
+  const handleImageSelect = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
@@ -53,12 +52,53 @@ export function Header() {
       quality: 1,
     })
 
-    console.log(result)
+    //console.log(result)
 
     if (!result.cancelled) {
-      setUserImage(result.uri)
       await imageSubmit(result.uri)
     }
+  }
+
+  function handleImageClear() {
+    Alert.alert('Imagem do Usuário', 'Deseja limpar e restaurar a imagem padrão?', [
+      {
+        text: 'Não'
+      },
+      {
+        text: 'Sim',
+        onPress: () => imageSubmit('') 
+      },
+    ])
+  }
+
+  function handleImage() {
+    Alert.alert(
+      'Imagem do Usuário',
+      '', 
+      userImage 
+      ? [
+        {
+          text: 'Limpar',
+          onPress: handleImageClear
+        },
+        {
+          text: 'Alterar',
+          onPress: handleImageSelect
+        },
+        {
+          text: 'Fechar'
+        }
+      ]
+      : [
+        {
+          text: 'Escolher',
+          onPress: handleImageSelect
+        },
+        {
+          text: 'Fechar'
+        }
+      ]
+    )
   }
 
   useEffect(() => {
@@ -73,9 +113,11 @@ export function Header() {
   useEffect(() => {
     async function loadStorageUserImage() {
       const userImage = await AsyncStorage.getItem(STORAGE_USER_IMAGE)
-      setUserImage(userImage || userImg.uri)
+      setUserImage(userImage || '')
+      setIsLoagingImage(false)
     }
 
+    setIsLoagingImage(true)
     loadStorageUserImage()
   },[])
 
@@ -101,10 +143,13 @@ export function Header() {
         </Text>
       </View>
 
-      <TouchableOpacity onPress={handleImage}>
-        {userImage && 
+      <TouchableOpacity 
+        onPress={handleImageSelect} 
+        onLongPress={handleImage}
+      >
+        {!isLoadingImage && 
           <Image 
-            source={{uri: userImage}}  
+            source={userImage ? {uri: userImage} : userImg}  
             style={styles.image}
           />
         }
