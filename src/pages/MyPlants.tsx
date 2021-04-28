@@ -19,6 +19,7 @@ import { ptBR } from 'date-fns/locale';
 import fonts from '../styles/fonts';
 import { PlantCardSecondary } from '../components/PlantCardSecondary';
 import { Load } from '../components/Load';
+import { consoleAllScheduleNotifications } from '../libs/notifications';
 
 export function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([])
@@ -27,22 +28,27 @@ export function MyPlants() {
 
   useEffect(() => {
     async function loadStorageData() {
-      const plantStoraged = await loadPlant()
-
-      const nextTime = formatDistance(
-        new Date(plantStoraged[0].dateTimeNotification).getTime(),
-        new Date().getTime(),
-        { locale: ptBR }
-      )
-
-      setNextWatered(
-        `Não esqueça de regar a ${plantStoraged[0].name} à ${nextTime}.`
-      )
-
-      setMyPlants(plantStoraged)
-      setLoading(false)
+      try {
+        const plantStoraged = await loadPlant()
+        
+        const nextTime = formatDistance(
+          new Date(plantStoraged[0].dateTimeNotification).getTime(),
+          new Date().getTime(),
+          { locale: ptBR }
+        )
+          
+        setNextWatered(
+          `Não esqueça de regar a ${plantStoraged[0].name} à ${nextTime}.`
+        )
+            
+        setMyPlants(plantStoraged)
+        setLoading(false)
+      }
+          
+      catch (error) {
+      }
     }
-
+    
     loadStorageData()
   }, []) 
 
@@ -99,6 +105,7 @@ export function MyPlants() {
             <PlantCardSecondary 
               data={item} 
               handleRemove={() => handleRemove(item)}
+              onPress={consoleAllScheduleNotifications}
             />
           )}
           showsVerticalScrollIndicator={false}

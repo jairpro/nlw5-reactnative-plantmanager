@@ -34,7 +34,6 @@ export function Confirmation() {
   } = routes.params as Params
 
   function handleMoveOn() {
-    console.log('nextScreen: ', nextScreen)
     navigation.navigate(nextScreen)
   }
 

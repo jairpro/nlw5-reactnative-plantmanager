@@ -1,6 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import * as Notifications from 'expo-notifications'
-import { format, isBefore } from 'date-fns'
+import { format } from 'date-fns'
+import { 
+  cancelAllScheduleNotificationsByPlant, 
+  consoleAllScheduleNotifications, 
+  scheduleNotification
+} from './notifications'
+
+export const STORAGE_PLANTS = '@plantmanager:plants'
 
 export interface PlantProps {
   id: string
@@ -14,7 +20,7 @@ export interface PlantProps {
     repeat_every: string
   }
   hour: string
-  dateTimeNotification: Date
+  dateTimeNotification: string
 }
 
 export interface StoragePlantProps {
@@ -26,42 +32,11 @@ export interface StoragePlantProps {
 
 export async function savePlant(plant: PlantProps): Promise<void> {
   try {
-    const nextTime = new Date(plant.dateTimeNotification)
-    const now = new Date()
+    await cancelAllScheduleNotificationsByPlant(plant.id)
+    const notificationId = await scheduleNotification(plant)
+    await consoleAllScheduleNotifications()
 
-    const  { times, repeat_every } = plant.frequency
-    if (repeat_every === 'week') {
-      const interval = Math.trunc(7 / times)
-      nextTime.setDate(now.getDate() + interval)
-    }
-    else {
-      const dateTime = nextTime
-      if (dateTime && isBefore(dateTime, new Date())) {
-        nextTime.setDate(nextTime.getDate() + 1)
-      }
-    }
-
-    const seconds = Math.abs(
-      Math.ceil(now.getTime() - nextTime.getTime()) / 1000
-    )
-
-    const notificationId = await Notifications.scheduleNotificationAsync({
-      content: {
-        title: 'Heeey, 🌱',
-        body: `Está na hora de cuidar da sua ${plant.name}`,
-        sound: true,
-        priority: Notifications.AndroidNotificationPriority.HIGH,
-        data: {
-          plant
-        },
-      },
-      trigger: {
-        seconds: seconds < 60 ? 60 : seconds,
-        repeats: true,
-      }
-    })
-
-    const data = await AsyncStorage.getItem('@plantmanager:plants')
+    const data = await AsyncStorage.getItem(STORAGE_PLANTS)
     const oldPlants = data ? (JSON.parse(data) as StoragePlantProps) : {}
 
     const newPlant = {
@@ -71,11 +46,16 @@ export async function savePlant(plant: PlantProps): Promise<void> {
       }
     }
 
-    await AsyncStorage.setItem('@plantmanager:plants',
-      JSON.stringify({
-        ...newPlant,
-        ...oldPlants,
-    }))
+    delete oldPlants[plant.id]
+
+    const plantsAsString = JSON.stringify({
+      ...newPlant,
+      ...oldPlants,
+    })
+
+    console.log('plantsAsString: ', plantsAsString)
+  
+    await AsyncStorage.setItem(STORAGE_PLANTS, plantsAsString)
   }
   catch (error) {
     throw new Error(error)
@@ -84,7 +64,7 @@ export async function savePlant(plant: PlantProps): Promise<void> {
 
 export async function loadPlant(): Promise<PlantProps[]> {
   try {
-    const data = await AsyncStorage.getItem('@plantmanager:plants')
+    const data = await AsyncStorage.getItem(STORAGE_PLANTS)
     const plants = data ? (JSON.parse(data) as StoragePlantProps) : {}
     
     const plantsSorted = Object
@@ -107,21 +87,19 @@ export async function loadPlant(): Promise<PlantProps[]> {
     throw new Error(error)
   }
 }
-  
+
 export async function removePlant(id: string): Promise<void> {
-  const data = await AsyncStorage.getItem('@plantmanager:plants')
-  const plants = data ? (JSON.parse(data) as StoragePlantProps) : {}
+  const data = await AsyncStorage.getItem(STORAGE_PLANTS)
+  let plants = data ? (JSON.parse(data) as StoragePlantProps) : {}
 
-  try {
-    await Notifications.cancelScheduledNotificationAsync(plants[id].notificationId)
-  }
-  catch (error) {
+  await cancelAllScheduleNotificationsByPlant(id)
+  await consoleAllScheduleNotifications()
 
-  }
   delete plants[id]
 
-  await AsyncStorage.setItem(
-    '@plantmanager:plants',
-    JSON.stringify(plants)
-  )
+  const plantsAsString = JSON.stringify(plants)
+
+  console.log('plantsAsString: ', plantsAsString)
+
+  await AsyncStorage.setItem(STORAGE_PLANTS, plantsAsString)
 }

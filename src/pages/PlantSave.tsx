@@ -58,9 +58,13 @@ export function PlantSave() {
 
   async function handleSave() {
     try {
+      const selectedDateTimeAsString = String(selectedDateTime)
+      console.log('selectedDateTime: ', selectedDateTime)
+      console.log('selectedDateTimeAsString: ', selectedDateTimeAsString)
+
       await savePlant({
         ...plant,
-        dateTimeNotification: selectedDateTime,
+        dateTimeNotification: selectedDateTimeAsString,
       })
 
       navigation.navigate('Confirmation', {
